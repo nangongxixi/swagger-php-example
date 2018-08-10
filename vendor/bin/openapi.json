@@ -1,0 +1,275 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "wxAPI",
+        "description": "for wechat small app",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "photo.search": {
+            "get": {
+                "tags": [
+                    "\u63a5\u53e3\u6837\u5f0f\u793a\u4f8b"
+                ],
+                "summary": "\u76f8\u518c\u641c\u7d22",
+                "description": "\u697c\u76d8\u6548\u679c\u56fe\u641c\u7d22",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u5206\u9875\u53c2\u6570",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "style",
+                        "in": "query",
+                        "description": "\u98ce\u683c\u7c7b\u522bid",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "area",
+                        "in": "query",
+                        "description": "\u9762\u79efid",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "sk",
+                        "in": "query",
+                        "description": "\u641c\u7d22\u5173\u952e\u5b57",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "title"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\u72b6\u6001\u7801",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": [
+                                        "code",
+                                        "data"
+                                    ],
+                                    "properties": {
+                                        "code": {
+                                            "description": "\u72b6\u6001\u7801",
+                                            "type": "integer"
+                                        },
+                                        "items": {
+                                            "description": "\u641c\u7d22\u7ed3\u679c\u96c6",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/photolist"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "photo.info": {
+            "get": {
+                "tags": [
+                    "\u63a5\u53e3\u6837\u5f0f\u793a\u4f8b"
+                ],
+                "summary": "\u76f8\u518c\u8be6\u60c5",
+                "description": "\u6548\u679c\u56fe\u8be6\u60c5",
+                "operationId": "findPets",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "\u6548\u679c\u56feid",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/photoinfo"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "photo.navList": {
+            "get": {
+                "tags": [
+                    "\u63a5\u53e3\u6837\u5f0f\u793a\u4f8b"
+                ],
+                "summary": "\u76f8\u518c\u5217\u8868",
+                "description": "\u6548\u679c\u56fe\u5206\u7c7b\u5217\u8868",
+                "operationId": "findPets",
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/designnavlist"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "photolist": {
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "\u81ea\u589eid",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "description": "\u540d\u79f0",
+                        "type": "string",
+                        "format": "title",
+                        "default": "\u534e\u5357\u91d1\u798f"
+                    },
+                    "name": {
+                        "description": "\u540d\u79f0",
+                        "type": "string",
+                        "format": "title",
+                        "default": "\u534e\u5357\u91d1\u798f"
+                    },
+                    "hits": {
+                        "description": "\u70b9\u51fb\u6b21\u6570",
+                        "type": "integer",
+                        "default": "254"
+                    },
+                    "url": {
+                        "description": "\u76f8\u518c\u5730\u5740",
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "image": {
+                        "description": "\u7f29\u7565\u56fe",
+                        "type": "string",
+                        "format": "image"
+                    },
+                    "image_albums_226x176": {
+                        "description": "\u6307\u5b9a\u5c3a\u5bf8\u7f29\u7565\u56fe",
+                        "type": "string",
+                        "format": "image"
+                    },
+                    "collection": {
+                        "description": "\u6536\u85cf\u6570",
+                        "type": "integer",
+                        "default": "45"
+                    },
+                    "share": {
+                        "description": "\u5206\u4eab\u6570\u91cf",
+                        "type": "integer",
+                        "default": "72"
+                    },
+                    "aid": {
+                        "description": "\u76f8\u518c\u96c6id",
+                        "type": "integer",
+                        "default": "83"
+                    }
+                },
+                "type": "object"
+            },
+            "photoinfo": {
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "\u81ea\u589eid",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "imgmid": {
+                        "description": "\u56fe\u7247guid",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "\u56fe\u7247\u540d\u79f0",
+                        "type": "string",
+                        "format": "title"
+                    },
+                    "content": {
+                        "description": "\u56fe\u7247\u5185\u5bb9",
+                        "type": "integer"
+                    },
+                    "image": {
+                        "description": "\u7f29\u7565\u56fe",
+                        "type": "string",
+                        "format": "image"
+                    },
+                    "cid": {
+                        "description": "\u6240\u5c5e\u7c7b\u522b",
+                        "type": "integer"
+                    },
+                    "murl": {
+                        "description": "\u76f8\u518c\u96c6\u5730\u5740",
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "images": {
+                        "description": "\u8be6\u60c5\u56fe\u7247\u5217\u8868",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/photoimages"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "photoimages": {
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "img": {
+                        "description": "\u56fe\u7247\u5730\u5740",
+                        "type": "image"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "find more info here",
+        "url": "http://api2.homenew.9z.cn/api.php"
+    }
+}

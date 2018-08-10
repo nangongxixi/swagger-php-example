@@ -1,0 +1,50 @@
+{
+  "name": "stcer/j-api-simple",
+  "description": "A simple http api server base on php-fpm",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stcer",
+      "email": "7443930@qq.com"
+    }
+  ],
+
+  "minimum-stability": "dev",
+
+  "autoload": {
+    "psr-4": {
+      "j\\apiSimple\\": "src"
+    }
+  },
+
+  "require": {
+    "php": ">=5.4.0",
+    "stcer/j-core": "*",
+    "stcer/j-api-simple": "dev-master"
+  },
+
+  "suggest": {
+      "zircote/swagger-php" : "*"
+  },
+
+  "require-dev": {
+    "zircote/swagger-php" : "*",
+    "stcer/ide-doc": "dev-master"
+  },
+
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.9z.cn/"
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    },
+    {"packagist": false}
+  ],
+
+  "config" : {
+    "secure-http" : false
+  }
+}

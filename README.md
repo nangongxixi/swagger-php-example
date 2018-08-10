@@ -1,14 +1,14 @@
 # swagger-php-example
 基于swagger-php生成json来实现接口管理
 <br><br>
->##编写swagger文件
+>## 编写swagger文件
 
 操作过程：
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swagger会扫描vendor/bin目录下所有的.php文件，并把所有.php文件生成的json文件拼装成一个json文件。
 然后再手动把这个json文件导入到Yapi中解析成可视化的接口列表即可。
 <br><br>
 
->##安装 和 生成 .json 文件
+>## 安装 和 生成 .json 文件
 
     # git clone https://github.com/nangongxixi/swagger-php-example.git
     # cd vendor/bin
@@ -16,7 +16,7 @@
     
 以上操作后，即可在当前目录生成一个json文件…<br>
 <br>
->##代码示例：
+>## 代码示例：
 
      /**
       * @OAS\Schema(
@@ -48,7 +48,7 @@
      * )
      */
 <br>
->##代码常规操作说明：<br>
+>## 代码常规操作说明：<br>
 
 OAS\Schema :  表示这是一个模型<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema：模型名称<br>
